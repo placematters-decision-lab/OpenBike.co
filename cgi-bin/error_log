@@ -1,0 +1,84 @@
+[28-Jul-2012 12:54:56] PHP Parse error:  syntax error, unexpected '<' in /home/radroute/public_html/cgi-bin/share2.php on line 6
+[28-Jul-2012 12:58:37] PHP Parse error:  syntax error, unexpected T_STRING in /home/radroute/public_html/cgi-bin/share2.php on line 10
+[28-Jul-2012 13:01:42] PHP Warning:  file_get_contents(https://...@colorado.edu&amp;apiKey=ff83777bc7a1bac0) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: HTTP request failed! HTTP/1.1 202 Accepted
+ in /home/radroute/public_html/cgi-bin/share2.php on line 14
+[28-Jul-2012 13:14:43] PHP Parse error:  syntax error, unexpected $end in /home/radroute/public_html/cgi-bin/share2.php on line 29
+[28-Jul-2012 13:15:04] PHP Warning:  file_get_contents(https://...@colorado.edu&amp;apiKey=ff83777bc7a1bac0) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ in /home/radroute/public_html/cgi-bin/share2.php on line 14
+[28-Jul-2012 17:40:25] PHP Parse error:  syntax error, unexpected T_VAR in /home/radroute/public_html/cgi-bin/ft.php on line 6
+[28-Jul-2012 17:53:04] PHP Warning:  file_get_contents(https://www.google.com/accounts/ClientLogin): failed to open stream: HTTP request failed! HTTP/1.0 403 Forbidden
+ in /home/radroute/public_html/cgi-bin/ft.php on line 25
+[28-Jul-2012 18:06:10] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home/radroute/public_html/cgi-bin/ft.php on line 59
+[28-Jul-2012 18:06:59] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home/radroute/public_html/cgi-bin/ft.php on line 63
+[28-Jul-2012 18:09:30] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home/radroute/public_html/cgi-bin/ft.php on line 69
+[28-Jul-2012 18:10:24] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home/radroute/public_html/cgi-bin/ft.php on line 69
+[28-Jul-2012 18:12:13] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home/radroute/public_html/cgi-bin/ft.php on line 68
+[28-Jul-2012 18:13:59] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home/radroute/public_html/cgi-bin/ft.php on line 68
+[28-Jul-2012 18:15:02] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home/radroute/public_html/cgi-bin/ft.php on line 68
+[28-Jul-2012 18:15:46] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home/radroute/public_html/cgi-bin/ft.php on line 68
+[28-Jul-2012 18:16:25] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home/radroute/public_html/cgi-bin/ft.php on line 68
+[28-Jul-2012 18:19:11] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home/radroute/public_html/cgi-bin/ft.php on line 68
+[28-Jul-2012 18:21:57] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home/radroute/public_html/cgi-bin/ft.php on line 68
+[28-Jul-2012 18:24:25] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home/radroute/public_html/cgi-bin/ft.php on line 65
+[28-Jul-2012 18:38:46] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home/radroute/public_html/cgi-bin/ft.php on line 68
+[28-Jul-2012 18:40:10] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home/radroute/public_html/cgi-bin/ft.php on line 68
+[28-Jul-2012 18:40:58] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home/radroute/public_html/cgi-bin/ft.php on line 72
+[28-Jul-2012 18:41:25] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home/radroute/public_html/cgi-bin/ft.php on line 72
+[28-Jul-2012 18:43:08] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home/radroute/public_html/cgi-bin/ft.php on line 73
+[28-Jul-2012 18:43:54] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 401 Unauthorized
+ in /home/radroute/public_html/cgi-bin/ft.php on line 73
+[28-Jul-2012 18:46:57] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 401 Unauthorized
+ in /home/radroute/public_html/cgi-bin/ft.php on line 73
+[28-Jul-2012 18:47:28] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home/radroute/public_html/cgi-bin/ft.php on line 73
+[28-Jul-2012 19:03:47] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 401 Unauthorized
+ in /home/radroute/public_html/cgi-bin/ms.php on line 38
+[28-Jul-2012 19:04:05] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 401 Unauthorized
+ in /home/radroute/public_html/cgi-bin/ms.php on line 38
+[28-Jul-2012 19:04:50] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 401 Unauthorized
+ in /home/radroute/public_html/cgi-bin/ms.php on line 38
+[28-Jul-2012 19:05:32] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 401 Unauthorized
+ in /home/radroute/public_html/cgi-bin/ms.php on line 40
+[28-Jul-2012 19:07:49] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 401 Unauthorized
+ in /home/radroute/public_html/cgi-bin/ms.php on line 36
+[28-Jul-2012 19:09:12] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ')' in /home/radroute/public_html/cgi-bin/ms.php on line 11
+[28-Jul-2012 19:09:22] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 401 Unauthorized
+ in /home/radroute/public_html/cgi-bin/ms.php on line 35
+[28-Jul-2012 19:16:24] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 401 Unauthorized
+ in /home/radroute/public_html/cgi-bin/ms.php on line 36
+[28-Jul-2012 19:19:51] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home/radroute/public_html/cgi-bin/ms.php on line 37
+[28-Jul-2012 19:20:27] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home/radroute/public_html/cgi-bin/ms.php on line 37
+[28-Jul-2012 19:21:52] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home/radroute/public_html/cgi-bin/ms.php on line 37
+[28-Jul-2012 19:22:10] PHP Parse error:  syntax error, unexpected ')' in /home/radroute/public_html/cgi-bin/ms.php on line 28
+[28-Jul-2012 19:22:38] PHP Warning:  file_get_contents(https://www.googleapis.com/fusiontables/v1/query): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home/radroute/public_html/cgi-bin/ms.php on line 35
+[28-Jul-2012 20:06:25] PHP Warning:  curl_setopt(): supplied argument is not a valid cURL handle resource in /home/radroute/public_html/cgi-bin/m.php on line 28
+[28-Jul-2012 21:33:11] PHP Warning:  curl_setopt(): supplied argument is not a valid cURL handle resource in /home/radroute/public_html/cgi-bin/m.php on line 38
+[28-Jul-2012 21:33:56] PHP Warning:  curl_setopt(): supplied argument is not a valid cURL handle resource in /home/radroute/public_html/cgi-bin/m.php on line 38
+[28-Jul-2012 21:48:17] PHP Parse error:  syntax error, unexpected T_STRING in /home/radroute/public_html/cgi-bin/m.php on line 27
+[28-Jul-2012 21:48:40] PHP Parse error:  syntax error, unexpected T_STRING in /home/radroute/public_html/cgi-bin/m.php on line 26
+[28-Jul-2012 21:48:54] PHP Parse error:  syntax error, unexpected '"' in /home/radroute/public_html/cgi-bin/m.php on line 28
+[28-Jul-2012 21:50:36] PHP Parse error:  syntax error, unexpected '"' in /home/radroute/public_html/cgi-bin/m.php on line 30
+[28-Jul-2012 22:31:07] PHP Parse error:  syntax error, unexpected ';' in /home/radroute/public_html/cgi-bin/test.php on line 2
+[28-Jul-2012 22:31:14] PHP Parse error:  syntax error, unexpected ';' in /home/radroute/public_html/cgi-bin/test.php on line 2
+[28-Jul-2012 22:31:18] PHP Parse error:  syntax error, unexpected ';' in /home/radroute/public_html/cgi-bin/test.php on line 2
