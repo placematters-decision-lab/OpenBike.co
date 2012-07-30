@@ -22,14 +22,12 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 
     <link rel="stylesheet" href="css/main.css">
-	<link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.8.22.custom.css">
-	
 
     <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.7.2.min.js"><\/script>')</script>
-	<script src="js/jquery-ui-1.8.22.custom.min.js"></script>
+
     <script src="js/vendor/modernizr-2.6.1.min.js"></script>
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB31yLcjlGPKHBV_d7uJrIw7JflR-HHlbI&sensor=false"></script>
     <script src="js/main.js"></script>
@@ -44,59 +42,53 @@
     <!-- Add your site or application content here -->
   <div id="blanket">
   	<div id="map_canvas"></div>
-	<div id="controls"></div>
-	<div id="ranking"></div>
+	
+	
+	<div id="rankings">
+			<table id="top_rank">
+				<th>Top Ranked Routes</th>
+				<tr>
+					<td>Route Name</td>
+					<td>Route Rating</td>
+				</tr>
+				<tr>
+					<td class="route_name"><?php echo $top[0][0]; ?></td>
+					<td class="route_score"><?php echo substr($top[0][1],0,3); ?></td>
+				</tr>
+				<tr>
+					<td class="route_name"><?php echo $top[1][0]; ?></td>
+					<td class="route_score"><?php echo substr($top[1][1],0,3); ?></td>
+				</tr>
+				<tr>
+					<td class="route_name"><?php echo $top[2][0]; ?></td>
+					<td class="route_score"><?php echo substr($top[2][1],0,3); ?></td>
+				</tr>
+			</table>
+			<table id="bottom_rank">
+				<th>Bottom Ranked Routes</th>
+				<tr>
+					<td>Route Name</td>
+					<td>Route Rating</td>
+				</tr>
+				<tr>
+					<td class="route_name"><?php echo $bottom[0][0]; ?></td>
+					<td class="route_score"><?php echo substr($bottom[0][1],0,3); ?></td>
+				</tr>
+				<tr>
+					<td class="route_name"><?php echo $bottom[1][0]; ?></td>
+					<td class="route_score"><?php echo substr($bottom[1][1],0,3); ?></td>
+				</tr>
+				<tr>
+					<td class="route_name"><?php echo $bottom[2][0]; ?></td>
+					<td class="route_score"><?php echo substr($bottom[2][1],0,3); ?></td>
+				</tr>
+			</table>
+	</div><!-- #rankings -->
 
   </div><!-- #wrapper -->
-  <div id="route_ranker_wrapper">
-  	<div id="route_ranker_toolbar">Maximize</div>
-  	<form id="rank_form">
-  	  <div id="route_ranker">
-		<h4>Rank your Route</h4>
-  		<table>
-  			<tr>
-  				<td colspan="3" class="rank_category">Beauty</td>
-  			</tr>
-  			<tr class="slide_hold">
-  				<td class="left_label label">Ugly</td>
-  				<td><div id="beauty_slider" class="slider"></div></td>
-  				<td class="label">Pretty</td>
-  			</tr>
-  			<tr>
-  				<td colspan="3" class="rank_category">Ease</td>
-  			</tr>
-  			<tr class="slide_hold">
-  				<td class="left_label label">Hard</td>
-  				<td><div id="difficulty_slider" class="slider"></div></td>
-  				<td class="label">Easy</td>
-  			</tr>
-  			<tr>
-  				<td colspan="3" class="rank_category">Safety</td>
-  			</tr>
-  			<tr class="slide_hold">
-  				<td class="left_label label">Dangerous</td>
-  				<td><div id="safety_slider" class="slider"></div></td>
-  				<td class="label">Safe</td>
-  			</tr>
-  		</table>
-  		
-  	  </div>
-  	  <div id="route_info">
-  		<h4>Leg Name</h4>
-  		<ul id="leg_list"><input type='hidden' name='legstring' id='legstring' value="" /><input type='hidden' name='legnamestring' id='legnamestring' value="" /></ul>
-  		
-  		<input type="button" value="Rate Route" class="button" id="rateSubmit">
-  	  </div>
-  	</form>
-  	<div id="social">
-  		<h4>Share My Route</h4>
-  		<span id="sharethis">Share My Route</span>
-  	</div>
-  </div>
+  
 	
-	<script type="text/javascript">
 	
-	</script>
 	
 	
 	

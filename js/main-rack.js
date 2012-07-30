@@ -61,8 +61,8 @@ function initialize() {
   });
   
   routeLayer.setMap(map); 
-  //rackLayer.setMap(map);
-  safetyLayer.setMap(map);
+  rackLayer.setMap(map);
+  //safetyLayer.setMap(map);
   
 }
 
@@ -173,14 +173,6 @@ $(document).ready(function(){
 		position: ['right','top'],
 		title: 'Route Rankings',
 		zIndex: 9
-	});
-	
-	$('#sharethis').click(function(){
-		$(this).load('cgi-bin/share.php').dialog({
-			title: 'Share',
-			position: 'top',
-			resizable: false
-		});
 	});
 	
 	$(function() {

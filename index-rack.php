@@ -32,7 +32,7 @@
 	<script src="js/jquery-ui-1.8.22.custom.min.js"></script>
     <script src="js/vendor/modernizr-2.6.1.min.js"></script>
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB31yLcjlGPKHBV_d7uJrIw7JflR-HHlbI&sensor=false"></script>
-    <script src="js/main.js"></script>
+    <script src="js/main-rack.js"></script>
     <script src="js/plugins.js"></script>
 
 </head>
@@ -88,10 +88,7 @@
   		<input type="button" value="Rate Route" class="button" id="rateSubmit">
   	  </div>
   	</form>
-  	<div id="social">
-  		<h4>Share My Route</h4>
-  		<span id="sharethis">Share My Route</span>
-  	</div>
+  	<div class="message"></div>
   </div>
 	
 	<script type="text/javascript">

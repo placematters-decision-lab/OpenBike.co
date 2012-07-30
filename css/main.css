@@ -459,13 +459,7 @@ html, body {
 
 
 #rankings {
-position: absolute;
-right: 20px;
-top: 20px;
-z-index: 999;
-border: 1px solid black;
-background-color: rgba(255, 255, 255, 0.9);
-padding: 2em;
+
 }
 #top_rank {
 	margin-bottom:2em;
@@ -484,16 +478,70 @@ padding: 2em;
 }
 
 
+h4 {
+	margin:.4em 0;
+}
 
+#route_ranker_toolbar { padding-left:1em; background-color:#eee;}
 
+#route_ranker_wrapper {
+	position:absolute;
+	bottom:0;
+	height:20px;
+	z-index:9999;
+	background-color:rgba(255,255,255,.95);
+	width:100%;
+	border-top:3px solid #ddd;
 
+-moz-border-radius-topleft: 4px;
+-webkit-border-top-left-radius: 4px;
+-khtml-border-top-left-radius: 4px;
+border-top-left-radius: 4px;
 
+-moz-border-radius-topright: 4px;
+-webkit-border-top-right-radius: 4px;
+-khtml-border-top-right-radius: 4px;
+border-top-right-radius: 4px;	
+}
+#route_ranker {
+	width:30%;
+	float:left;
+	padding:0 2em;
+	display:none;
+}
+.slide_hold {
+	height:2.5em;
+}
+.slider {
+	width:100px;
+	margin:0 1em;
+}
+.rank_category {
+	padding-left:1em;
+	
+}
+.label {
+	font-size:.85em;
+}
+.left_label {
+	text-align:right;
+}
+#route_info {
+	float:left;
+	width:30%;
+	
+}
+.del_item { cursor:pointer; }
+.toggle {margin-right:1em; }
 
-
-
-
-
-
+#social {
+	float:left;
+	width:30%;
+}
+#sharethis {
+	text-decoration:underline;
+	cursor:pointer;
+}
 
 
 
@@ -664,51 +712,3 @@ padding: 2em;
     }
 }
 
-
-
-/*********************/
-/** jRating CSS **/
-/*********************/
-
-/**Div containing the color of the stars */
-.jRatingAverage {
-	background-color:#f62929;
-	position:relative;
-	top:0;
-	left:0;
-	z-index:2;
-	height:100%;
-}
-.jRatingColor {
-	background-color:#f4c239; /* bgcolor of the stars*/
-	position:relative;
-	top:0;
-	left:0;
-	z-index:2;
-	height:100%;
-}
-
-/** Div containing the stars **/
-.jStar {
-	position:relative;
-	left:0;
-	z-index:3;
-}
-
-/** P containing the rate informations **/
-p.jRatingInfos {
-	position:		absolute;
-	z-index:9999;
-	background:	transparent url('icons/bg_jRatingInfos.png') no-repeat;
-	color:			#FFF;
-	display:		none;
-	width:			91px;
-	height:			29px;	
-	font-size:16px;
-	text-align:center;
-	padding-top:5px;
-}
-	p.jRatingInfos span.maxRate {
-		color:#c9c9c9;
-		font-size:14px;
-	}

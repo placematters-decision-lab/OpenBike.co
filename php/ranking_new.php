@@ -8,7 +8,7 @@ $query = "SELECT AVERAGE(Safety) AS AvgSafety,
 AVERAGE(Ease) AS AvgEase, AVERAGE(Beauty) AS AvgBeauty,
 legID, legName, Score
 FROM 1Mdglx_V5GVWMnM1Sk6W_FhE57KGWdym28PeEyxs
-GROUP BY legName, legID
+GROUP BY legName, legID, Score
 ORDER BY Score DESC
 ";
 
@@ -16,7 +16,7 @@ $rankings = selectRanking($auth,$query);
 
 $json_output = json_decode($rankings);
 
-print_r($json_output);
+//print_r($json_output);
 
 $top = array();
 $i = 0;
@@ -24,11 +24,14 @@ while ($i < 3) {
 	$legName = $json_output->rows[$i][4];
 	$Ease = $json_output->rows[$i][1];
 	$Safety = $json_output->rows[$i][0];
-	$json_output->rows[$i][2];
-	$ratingArray = array($legName,($Difficulty + $Safety + $Beauty)/3,$Difficulty,$Safety,$Beauty);
+	$Beauty = $json_output->rows[$i][2];
+	$ratingArray = array($legName,($Ease + $Safety + $Beauty)/3,$Ease,$Safety,$Beauty);
 	array_push($top, $ratingArray);
 	$i++;
 }
+
+
+//print_r($top);
 
 #BOTTOM
 
@@ -36,14 +39,14 @@ $query = "SELECT AVERAGE(Safety) AS AvgSafety,
 AVERAGE(Ease) AS AvgEase, AVERAGE(Beauty) AS AvgBeauty,
 legID, legName, Score
 FROM 1Mdglx_V5GVWMnM1Sk6W_FhE57KGWdym28PeEyxs
-GROUP BY legName, legID
+GROUP BY legName, legID, Score
 ORDER BY Score";
 
 $rankings = selectRanking($auth,$query);
 
 $json_output = json_decode($rankings);
 
-print_r($json_output);
+//print_r($json_output);
 
 $bottom = array();
 $i = 0;
@@ -51,15 +54,15 @@ while ($i < 3) {
 	$legName = $json_output->rows[$i][4];
 	$Ease = $json_output->rows[$i][1];
 	$Safety = $json_output->rows[$i][0];
-	$json_output->rows[$i][2];
-	$ratingArray = array($legName,($Difficulty + $Safety + $Beauty)/3,$Difficulty,$Safety,$Beauty);
+	$Beauty = $json_output->rows[$i][2];
+	$ratingArray = array($legName,($Ease + $Safety + $Beauty)/3,$Ease,$Safety,$Beauty);
 	array_push($bottom, $ratingArray);
 	$i++;
 }
 
 
 
-print_r($bottom);
+//print_r($bottom);
 
 function getToken() {
 
@@ -90,7 +93,7 @@ function selectRanking($token, $query) {
 
 	$body = "sql=" . urlencode($query) . "&key=AIzaSyB31yLcjlGPKHBV_d7uJrIw7JflR-HHlbI";
 
-	print("\n\n" . $body . "\n\n");
+	//print("\n\n" . $body . "\n\n");
 
 	$c = curl_init
 	("https://www.googleapis.com/fusiontables/v1/query");
@@ -144,4 +147,4 @@ function selectRanking($token, $query) {
 // }
 // mysql_close($con);
 
-?>
+?>

@@ -3,18 +3,16 @@
 $debug=FALSE;
 
 // GET parameters
-$legid = $_POST['legid']; 
-$legName = $_POST['legname'];
+$legids = $_POST['legid']; 
+$legNames = $_POST['legname'];
 $Safety = $_POST['safety'];
 $Ease = $_POST['ease'];
 $Beauty = $_POST['beauty'];
 $Sum = $Safety + $Beauty + $Ease;
 
-
-
 if($debug) {
-	$legid = 2;
-	$legName = "mark";
+	$legids = "2,4,6";
+	$legNames = "mark,mike,jeremy";
 	$Safety = 3;
 	$Ease = 1;
 	$Beauty = 1;
@@ -23,12 +21,25 @@ if($debug) {
 
 $auth = getToken();
 $query = "(legID,legName,Safety,Ease,Beauty,TimeStamp,Score)";
-$query2 = 
-"(".$legid.",'".$legName."',".$Safety.",".$Ease.",".$Beauty.",'".date("Y-m-d H:i:s", time())."',$Sum)";
+
+$alegids = explode(",", $legids);
+$alegnames = explode(",", $legNames);
+$size = count($alegids);
+$i = 0;
+while($i < $size) {
+	$legid = $alegids[$i];
+	$legName = $alegnames[$i];
+
+	$query2 = "(".$legid.",'".$legName."',".$Safety.",".$Ease.",".$Beauty.",'".date("Y-m-d H:i:s", time())."',$Sum)";
+	insertRanking($auth, $query, $query2);
+	$i++;
+}
 //print $query2;
-//print $query;insertRanking($auth, $query, $query2);
+//print $query;
 
 // header("Location: http://50.116.114.160/~radroute");
+
+print "Success!  You rated " . $size . " bike path legs.";
 
 function getToken() {
 	

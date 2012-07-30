@@ -3,3 +3,35 @@
 [28-Jul-2012 21:48:51] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'radroute_user'@'loc.lockdev.com' (using password: YES) in /home/radroute/public_html/php/ranking.php on line 4
 [28-Jul-2012 22:07:58] PHP Warning:  mysql_numrows(): supplied argument is not a valid MySQL result resource in /home/radroute/public_html/php/ranking.php on line 17
 [28-Jul-2012 22:07:58] PHP Warning:  mysql_numrows(): supplied argument is not a valid MySQL result resource in /home/radroute/public_html/php/ranking.php on line 33
+[29-Jul-2012 11:25:19] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING in /home/radroute/public_html/php/insertRating.php on line 11
+[29-Jul-2012 11:28:59] PHP Parse error:  syntax error, unexpected ')' in /home/radroute/public_html/php/insertRating.php on line 53
+[29-Jul-2012 12:30:34] PHP Warning:  mysql_query() [<a href='function.mysql-query'>function.mysql-query</a>]: Access denied for user 'radroute'@'localhost' (using password: NO) in /home/radroute/public_html/php/ranking_new.php on line 32
+[29-Jul-2012 12:30:34] PHP Warning:  mysql_query() [<a href='function.mysql-query'>function.mysql-query</a>]: A link to the server could not be established in /home/radroute/public_html/php/ranking_new.php on line 32
+[29-Jul-2012 12:30:34] PHP Warning:  mysql_numrows(): supplied argument is not a valid MySQL result resource in /home/radroute/public_html/php/ranking_new.php on line 33
+[29-Jul-2012 12:30:34] PHP Warning:  mysql_query() [<a href='function.mysql-query'>function.mysql-query</a>]: Access denied for user 'radroute'@'localhost' (using password: NO) in /home/radroute/public_html/php/ranking_new.php on line 48
+[29-Jul-2012 12:30:34] PHP Warning:  mysql_query() [<a href='function.mysql-query'>function.mysql-query</a>]: A link to the server could not be established in /home/radroute/public_html/php/ranking_new.php on line 48
+[29-Jul-2012 12:30:34] PHP Warning:  mysql_numrows(): supplied argument is not a valid MySQL result resource in /home/radroute/public_html/php/ranking_new.php on line 49
+[29-Jul-2012 12:30:34] PHP Warning:  mysql_close(): supplied argument is not a valid MySQL-Link resource in /home/radroute/public_html/php/ranking_new.php on line 61
+[29-Jul-2012 12:32:02] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/radroute/public_html/php/insertRating.php:57) in /home/radroute/public_html/php/insertRating.php on line 24
+[29-Jul-2012 12:33:05] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/radroute/public_html/php/insertRating.php:57) in /home/radroute/public_html/php/insertRating.php on line 24
+[29-Jul-2012 12:53:00] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/radroute/public_html/php/ranking_new.php on line 9
+[29-Jul-2012 13:16:17] PHP Warning:  Invalid argument supplied for foreach() in /home/radroute/public_html/php/ranking_new.php on line 10
+[29-Jul-2012 13:42:45] PHP Warning:  mysql_query() [<a href='function.mysql-query'>function.mysql-query</a>]: Access denied for user 'radroute'@'localhost' (using password: NO) in /home/radroute/public_html/php/ranking_new.php on line 9
+[29-Jul-2012 13:42:45] PHP Warning:  mysql_query() [<a href='function.mysql-query'>function.mysql-query</a>]: A link to the server could not be established in /home/radroute/public_html/php/ranking_new.php on line 9
+[29-Jul-2012 13:42:45] PHP Fatal error:  Cannot use object of type stdClass as array in /home/radroute/public_html/php/ranking_new.php on line 13
+[29-Jul-2012 13:43:02] PHP Fatal error:  Cannot use object of type stdClass as array in /home/radroute/public_html/php/ranking_new.php on line 12
+[29-Jul-2012 13:44:22] PHP Fatal error:  Cannot use object of type stdClass as array in /home/radroute/public_html/php/ranking_new.php on line 14
+[29-Jul-2012 13:44:58] PHP Fatal error:  Cannot use object of type stdClass as array in /home/radroute/public_html/php/ranking_new.php on line 15
+[29-Jul-2012 13:45:13] PHP Fatal error:  Cannot use object of type stdClass as array in /home/radroute/public_html/php/ranking_new.php on line 15
+[29-Jul-2012 14:02:51] PHP Fatal error:  Call to undefined function  url_decode() in /home/radroute/public_html/php/searchbylegname.php on line 4
+[29-Jul-2012 14:45:41] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/radroute/public_html/php/ranking2.php on line 139
+[29-Jul-2012 14:45:42] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/radroute/public_html/php/ranking2.php on line 139
+[29-Jul-2012 14:52:33] PHP Warning:  include(php/ranking.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/radroute/public_html/php/ranking2.php on line 3
+[29-Jul-2012 14:52:33] PHP Warning:  include(php/ranking.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/radroute/public_html/php/ranking2.php on line 3
+[29-Jul-2012 14:52:33] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'php/ranking.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/radroute/public_html/php/ranking2.php on line 3
+[29-Jul-2012 14:52:44] PHP Warning:  include(php/ranking_new.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/radroute/public_html/php/ranking2.php on line 3
+[29-Jul-2012 14:52:44] PHP Warning:  include(php/ranking_new.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/radroute/public_html/php/ranking2.php on line 3
+[29-Jul-2012 14:52:44] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'php/ranking_new.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/radroute/public_html/php/ranking2.php on line 3
+[29-Jul-2012 14:52:45] PHP Warning:  include(php/ranking_new.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/radroute/public_html/php/ranking2.php on line 3
+[29-Jul-2012 14:52:45] PHP Warning:  include(php/ranking_new.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/radroute/public_html/php/ranking2.php on line 3
+[29-Jul-2012 14:52:45] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'php/ranking_new.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/radroute/public_html/php/ranking2.php on line 3

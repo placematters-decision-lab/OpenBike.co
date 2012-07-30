@@ -7,7 +7,7 @@ print("<br><br>");
 
 print("Do you want to share with this person?");
 
-print("<form><input type = \"submit\" value = \"Yes\"></form>");
+print("<form action=\"http://50.116.114.160/~radroute\"><input type = \"submit\" value = \"Yes\"></form>");
 
 # the @ sign suppresses warning output
 $file = 

@@ -1,4 +1,4 @@
-<?php include 'php/ranking.php'; ?>
+<?php include 'php/ranking_new.php'; ?>
 <!DOCTYPE html>
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 <!-- Consider specifying the language of your content by adding the `lang` attribute to <html> -->
@@ -66,9 +66,9 @@
   				<td colspan="3" class="rank_category">Ease</td>
   			</tr>
   			<tr class="slide_hold">
-  				<td class="left_label label">Hard</td>
+  				<td class="left_label label">Easy</td>
   				<td><div id="difficulty_slider" class="slider"></div></td>
-  				<td class="label">Easy</td>
+  				<td class="label">Hard</td>
   			</tr>
   			<tr>
   				<td colspan="3" class="rank_category">Safety</td>
@@ -83,15 +83,11 @@
   	  </div>
   	  <div id="route_info">
   		<h4>Leg Name</h4>
-  		<ul id="leg_list"><input type='hidden' name='legstring' id='legstring' value="" /><input type='hidden' name='legnamestring' id='legnamestring' value="" /></ul>
-  		
-  		<input type="button" value="Rate Route" class="button" id="rateSubmit">
+  		<ul id="leg_list"></ul>
+  		<input type="submit" value="Rate Route" class="button" id="rateSubmit">
   	  </div>
   	</form>
-  	<div id="social">
-  		<h4>Share My Route</h4>
-  		<span id="sharethis">Share My Route</span>
-  	</div>
+  	<div class="message"></div>
   </div>
 	
 	<script type="text/javascript">
