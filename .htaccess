@@ -92,18 +92,16 @@
 # JavaScript
 #   Normalize to standard type (it's sniffed in IE anyways)
 #   tools.ietf.org/html/rfc4329#section-7.2
-AddType application/javascript         js jsonp
-AddType application/json               json
+AddType application/javascript         js
 
 # Audio
 AddType audio/ogg                      oga ogg
-AddType audio/mp4                      m4a f4a f4b
+AddType audio/mp4                      m4a
 
 # Video
 AddType video/ogg                      ogv
-AddType video/mp4                      mp4 m4v f4v f4p
+AddType video/mp4                      mp4 m4v
 AddType video/webm                     webm
-AddType video/x-flv                    flv
 
 # SVG
 #   Required for svg webfonts on iPad
@@ -122,15 +120,13 @@ AddType image/x-icon                        ico
 AddType image/webp                          webp
 AddType text/cache-manifest                 appcache manifest
 AddType text/x-component                    htc
-AddType application/xml                     rss atom xml rdf
 AddType application/x-chrome-extension      crx
 AddType application/x-opera-extension       oex
 AddType application/x-xpinstall             xpi
 AddType application/octet-stream            safariextz
 AddType application/x-web-app-manifest+json webapp
 AddType text/x-vcard                        vcf
-AddType application/x-shockwave-flash       swf
-AddType text/vtt                            vtt
+
 
 
 # ----------------------------------------------------------------------
@@ -213,7 +209,8 @@ AddType text/vtt                            vtt
 # ----------------------------------------------------------------------
 
 # These are pretty far-future expires headers.
-# They assume you control versioning with filename-based cache busting
+# They assume you control versioning with cachebusting query params like
+#   <script src="application.js?20100608">
 # Additionally, consider that outdated proxies may miscache
 #   www.stevesouders.com/blog/2008/08/23/revving-filenames-dont-use-querystring/
 
@@ -247,6 +244,7 @@ AddType text/vtt                            vtt
 # Media: images, video, audio
   ExpiresByType image/gif                 "access plus 1 month"
   ExpiresByType image/png                 "access plus 1 month"
+  ExpiresByType image/jpg                 "access plus 1 month"
   ExpiresByType image/jpeg                "access plus 1 month"
   ExpiresByType video/ogg                 "access plus 1 month"
   ExpiresByType audio/ogg                 "access plus 1 month"
@@ -268,17 +266,6 @@ AddType text/vtt                            vtt
   ExpiresByType application/javascript    "access plus 1 year"
 
 </IfModule>
-
-# ----------------------------------------------------------------------
-# Prevent mobile network providers from modifying your site
-# ----------------------------------------------------------------------
-
-# The following header prevents modification of your code over 3G on some European providers
-# This is the official 'bypass' suggested by O2 in the UK
-
-# <IfModule mod_headers.c>
-# Header set Cache-Control "no-transform"
-# </IfModule>
 
 
 
@@ -314,20 +301,6 @@ FileETag None
 
 
 # ----------------------------------------------------------------------
-# Set Keep-Alive Header
-# ----------------------------------------------------------------------
-
-# Keep-Alive allows the server to send multiple requests through one TCP-connection.
-# Be aware of possible disadvantages of this setting. Turn on if you serve a lot of
-# static content.
-
-# <IfModule mod_headers.c>
-#   Header set Connection Keep-Alive
-# </IfModule>
-
-
-
-# ----------------------------------------------------------------------
 # Cookie setting from iframes
 # ----------------------------------------------------------------------
 
@@ -335,7 +308,9 @@ FileETag None
 # If needed, uncomment and specify a path or regex in the Location directive
 
 # <IfModule mod_headers.c>
-#   Header set P3P "policyref=\"/w3c/p3p.xml\", CP=\"IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT\""
+#   <Location />
+#     Header set P3P "policyref=\"/w3c/p3p.xml\", CP=\"IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT\""
+#   </Location>
 # </IfModule>
 
 
@@ -346,14 +321,10 @@ FileETag None
 
 # Turning on the rewrite engine is necessary for the following rules and features.
 # FollowSymLinks must be enabled for this to work.
-#
-# Some cloud hosting services require RewriteBase to be set: goo.gl/HOcPN
-# If using the h5bp in a subdirectory, use `RewriteBase /foo` instead where 'foo' is your directory.
 
 <IfModule mod_rewrite.c>
   Options +FollowSymlinks
   RewriteEngine On
-# RewriteBase /
 </IfModule>
 
 
@@ -408,14 +379,14 @@ FileETag None
 # /css/style.20110203.css to /css/style.css
 
 # To understand why this is important and a better idea than all.css?v1231,
-# read: github.com/h5bp/html5-boilerplate/wiki/cachebusting
+# read: github.com/h5bp/html5-boilerplate/wiki/Version-Control-with-Cachebusting
 
 # Uncomment to enable.
-# <IfModule mod_rewrite.c>
-#   RewriteCond %{REQUEST_FILENAME} !-f
-#   RewriteCond %{REQUEST_FILENAME} !-d
-#   RewriteRule ^(.+)\.(\d+)\.(js|css|png|jpg|gif)$ $1.$3 [L]
-# </IfModule>
+ <IfModule mod_rewrite.c>
+   RewriteCond %{REQUEST_FILENAME} !-f
+   RewriteCond %{REQUEST_FILENAME} !-d
+   RewriteRule ^(.+)\.(\d+)\.(js|css|png|jpg|gif)$ $1.$3 [L]
+ </IfModule>
 
 
 
@@ -450,8 +421,6 @@ Options -MultiViews
 # ----------------------------------------------------------------------
 
 # You can add custom pages to handle 500 or 403 pretty easily, if you like.
-# If you are hosting your site in subdirectory, adjust this accordingly
-#    e.g. ErrorDocument 404 /subdir/404.html
 ErrorDocument 404 /404.html
 
 
@@ -464,7 +433,7 @@ ErrorDocument 404 /404.html
 AddDefaultCharset utf-8
 
 # Force UTF-8 for a number of file formats
-AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
+AddCharset utf-8 .css .js .xml .json .rss .atom
 
 
 
@@ -487,18 +456,18 @@ AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
 </IfModule>
 
 
-# Block access to "hidden" directories or files whose names begin with a period. This
+# Block access to "hidden" directories whose names begin with a period. This
 # includes directories used by version control systems such as Subversion or Git.
 <IfModule mod_rewrite.c>
-  RewriteCond %{SCRIPT_FILENAME} -d [OR]
+  RewriteCond %{SCRIPT_FILENAME} -d
   RewriteCond %{SCRIPT_FILENAME} -f
   RewriteRule "(^|/)\." - [F]
 </IfModule>
 
 
 # Block access to backup and source files
-# These files may be left by some text/html editors and
-# pose a great security danger, when anyone can access them
+# This files may be left by some text/html editors and
+# pose a great security danger, when someone can access them
 <FilesMatch "(\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist)|~)$">
   Order allow,deny
   Deny from all
@@ -511,7 +480,7 @@ AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
 # This closes a major security hole that is abused by most XSS (cross-site
 # scripting) attacks. For more information: http://php.net/register_globals
 #
-# IF REGISTER_GLOBALS DIRECTIVE CAUSES 500 INTERNAL SERVER ERRORS:
+# IF REGISTER_GLOBALS DIRECTIVE CAUSES 500 INTERNAL SERVER ERRORS :
 #
 # Your server does not allow PHP directives to be set via .htaccess. In that
 # case you must make this change in your php.ini file instead. If you are
@@ -525,9 +494,6 @@ AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
 
 # Rename session cookie to something else, than PHPSESSID
 # php_value session.name sid
-
-# Disable magic quotes (This feature has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.)
-# php_flag magic_quotes_gpc Off
 
 # Do not show you are using PHP
 # Note: Move this line to php.ini since it won't work in .htaccess
@@ -568,3 +534,18 @@ AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
 <IfModule php5_module>
   php_value session.cookie_httponly true
 </IfModule>
+
+
+RewriteEngine on
+RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*[^/])/?$ /$1.html [L,QSA]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*[^/])/?$ /$1.php [L,QSA]
+
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(pay/.*)$ https://lockdev.com/$1 [R=301,L]

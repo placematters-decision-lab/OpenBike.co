@@ -1,130 +1,178 @@
-<?php include 'php/ranking.php'; ?>
+
 <!DOCTYPE html>
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-<!-- Consider specifying the language of your content by adding the `lang` attribute to <html> -->
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<head>
+<html lang="en">
+  <head>
     <meta charset="utf-8">
-
-    <!-- Use the .htaccess and remove these lines to avoid edge case issues.
-         More info: h5bp.com/i/378 -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-    <title>Rad Routes - Bike rides made social</title>
+    <title>Open Bike</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
+    <meta name="author" content="">
 
-    <!-- Mobile viewport optimized: h5bp.com/viewport -->
-    <meta name="viewport" content="width=device-width">
-
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
-
-    <link rel="stylesheet" href="css/main.css">
-	<link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.8.22.custom.css">
+    <!-- Le styles -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+	<link href="/css/style.css" rel="stylesheet">
 	
-
-    <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.7.2.min.js"><\/script>')</script>
-	<script src="js/jquery-ui-1.8.22.custom.min.js"></script>
-    <script src="js/vendor/modernizr-2.6.1.min.js"></script>
+    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/smoothness/jquery-ui-1.8.24.custom.css">
+	
+	<script src="/js/vendor/jquery-1.7.2.min.js"></script>
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.7.2.min.js"><\/script>')</script>
+	
+	<script src="js/jquery-ui-1.8.24.custom.min.js"></script>
+	
+	
+    <script src="/js/vendor/modernizr-2.6.1.min.js"></script>
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB31yLcjlGPKHBV_d7uJrIw7JflR-HHlbI&sensor=false"></script>
-    <script src="js/main.js"></script>
-    <script src="js/plugins.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/plugins.js"></script>
 
-</head>
-<body onload="initialize()">
-    <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
-         chromium.org/developers/how-tos/chrome-frame-getting-started -->
-    <!--[if lt IE 7]><p class="chromeframe">Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-    <!-- Add your site or application content here -->
-  <div id="blanket">
-  	<div id="map_canvas"></div>
-	<div id="controls"></div>
-	<div id="ranking"></div>
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/ico/apple-touch-icon-57-precomposed.png">
+  </head>
 
-  </div><!-- #wrapper -->
-  <div id="route_ranker_wrapper">
-  	<div id="route_ranker_toolbar">Maximize</div>
-  	<form id="rank_form">
-  	  <div id="route_ranker">
-		<h4>Rank your Route</h4>
-  		<table>
-  			<tr>
-  				<td colspan="3" class="rank_category">Beauty</td>
-  			</tr>
-  			<tr class="slide_hold">
-  				<td class="left_label label">Ugly</td>
-  				<td><div id="beauty_slider" class="slider"></div></td>
-  				<td class="label">Pretty</td>
-  			</tr>
-  			<tr>
-  				<td colspan="3" class="rank_category">Ease</td>
-  			</tr>
-  			<tr class="slide_hold">
-  				<td class="left_label label">Hard</td>
-  				<td><div id="difficulty_slider" class="slider"></div></td>
-  				<td class="label">Easy</td>
-  			</tr>
-  			<tr>
-  				<td colspan="3" class="rank_category">Safety</td>
-  			</tr>
-  			<tr class="slide_hold">
-  				<td class="left_label label">Dangerous</td>
-  				<td><div id="safety_slider" class="slider"></div></td>
-  				<td class="label">Safe</td>
-  			</tr>
-  		</table>
-  		
-  	  </div>
-  	  <div id="route_info">
-  		<h4>Leg Name</h4>
-  		<ul id="leg_list"><input type='hidden' name='legstring' id='legstring' value="" /><input type='hidden' name='legnamestring' id='legnamestring' value="" /></ul>
-  		
-  		<input type="button" value="Rate Route" class="button" id="rateSubmit">
-  	  </div>
-  	</form>
-  	<div id="social">
-  		<h4>Share My Route</h4>
-  		<span id="sharethis">Share My Route</span>
-  	</div>
-  </div>
-	
-	<script type="text/javascript">
-	
-	</script>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+  <body onload="initialize()">
 
-    <!-- JavaScript at the bottom for fast page loading: http://developer.yahoo.com/performance/rules.html#js_bottom -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner"><div class="navbar-color">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#"><img src="img/open_bike_logo.png"></a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div></div>
+    </div>
 
-    <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
 
-    <!-- scripts concatenated and minified via build script -->
-    <!-- end scripts -->
+		  <div class="content">
 
-    <script>
-        var _gaq=[['_setAccount','UA-33720151-1'],['_trackPageview']];
-        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-        s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script>
-</body>
+		    <div class="wrapper">
+		      <div class="proper-content">
+		        <div id="map_canvas"></div>
+					
+	
+				<div class="right-sidebar"><div class="right-sidebar-color">
+					<div class="pull"></div>
+					<div id="controls"></div>
+					<div id="ranking"></div>
+
+				</div></div><!-- .right-sidebar -->
+				
+				
+				
+				<div class="route_ranker_wrapper"><div class="route_ranker_wrapper-color">
+					<div class="pull"></div>
+					  <div class="route_ranker">
+						<form id="rank_form">
+							<div id="rank_controls">
+								<h2>Rank Route</h2>
+								<table>
+									<tr>
+										<td colspan="3" class="rank_category"><h3>Beauty</h3></td>
+									</tr>
+									<tr>
+										<td class="left_label label">Ugly</td>
+										<td>&nbsp;</td>
+										<td class="label">Pretty</td>
+									</tr>
+									<tr class="slide_hold">
+										<td colspan="3" class="slider_row"><div id="beauty_slider" class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 50%; "></a></div></td>
+									</tr>
+									<tr>
+										<td colspan="3" class="rank_category"><h3>Ease</h3></td>
+									</tr>
+									<tr">
+										<td class="left_label label">Hard</td>
+										<td>&nbsp;</td>
+										<td class="label">Easy</td>
+									</tr>
+									<tr class="slide_hold">
+										<td colspan="3" class="slider_row"><div id="difficulty_slider" class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 50%; "></a></div></td>
+									</tr>
+									<tr>
+										<td colspan="3" class="rank_category"><h3>Safety</h3></td>
+									</tr>
+									<tr>
+										<td class="left_label label">Dangerous</td>
+										<td>&nbsp;</td>
+										<td class="label">Safe</td>
+									</tr>
+									<tr class="slide_hold">
+										<td colspan="3"><div id="safety_slider" class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 50%; "></a></div></td>
+									</tr>
+								</table>
+							</div>
+
+							<div id="route_info">
+								<h2>Leg Name</h2>
+								<ul id="leg_list"><input type="hidden" name="legstring" id="legstring" value=""><input type="hidden" name="legnamestring" id="legnamestring" value=""></ul>
+
+								<input type="button" value="Rate Route" class="button ui-button ui-widget ui-state-default ui-corner-all" id="rateSubmit" role="button" aria-disabled="false">
+							</div>
+							
+							<!-- <div id="social">
+								<h4>Share My Route</h4>
+								<span id="sharethis">Share My Route</span>
+							</div><!-- #social -->
+						</form>
+					  </div><!-- #route_ranker -->
+					  <!-- <div id="route_ranker_toolbar">Maximize</div> -->
+				  </div></div><!-- .route_ranker_wrapper -->
+  
+		      </div><!-- /.proper-content -->
+
+		      <div class="push"></div>
+
+		    </div><!-- /.wrapper -->
+
+		    <div class="footer-wrapper"><div class="footer-color">
+					<footer>
+						<ul>
+							<li><a href="">about</a></li>
+							<li><a href="">help</a></li>
+							<li><a href="">contact</a></li>
+						</ul>
+						<div class="clearfix"></div>
+					</footer>
+		    </div></div>
+		  </div>
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js/bootstrap-transition.js"></script>
+    <script src="/js/bootstrap-alert.js"></script>
+    <script src="/js/bootstrap-modal.js"></script>
+    <script src="/js/bootstrap-dropdown.js"></script>
+    <script src="/js/bootstrap-scrollspy.js"></script>
+    <script src="/js/bootstrap-tab.js"></script>
+    <script src="/js/bootstrap-tooltip.js"></script>
+    <script src="/js/bootstrap-popover.js"></script>
+    <script src="/js/bootstrap-button.js"></script>
+    <script src="/js/bootstrap-collapse.js"></script>
+    <script src="/js/bootstrap-carousel.js"></script>
+    <script src="/js/bootstrap-typeahead.js"></script>
+
+  </body>
 </html>

@@ -3,18 +3,43 @@
 */
 function initialize() {
 
+  var styles = [
+    {
+      stylers: [
+        { hue: "" },
+        { saturation: -100 }
+      ]
+    },{
+      featureType: "road",
+      elementType: "geometry",
+      stylers: [
+        { lightness: 100 },
+        { visibility: "simplified" }
+      ]
+    },{
+      featureType: "road",
+      elementType: "labels",
+      stylers: [
+        { visibility: "off" }
+      ]
+    }
+  ];
+
+
+  
+  
   //Create the map
   map = new google.maps.Map(document.getElementById('map_canvas'), {
-    mapTypeId: google.maps.MapTypeId.TERRAIN,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
     center: new google.maps.LatLng(39.737571, -104.984708),
     zoom: 13
-    
-    
   });
+  
+  map.setOptions({styles: styles});
 
   //Create Bike Route layer
-  routeLayer = new google.maps.FusionTablesLayer(4728744, {
-    query: "SELECT * FROM 4728744",
+  routeLayer = new google.maps.FusionTablesLayer(5369349, {
+    query: "SELECT * FROM 5369349",
     suppressInfoWindows: true //IMPORTANT - this suppresses info windows so you can create your own
   });
   
@@ -24,9 +49,27 @@ function initialize() {
     suppressInfoWindows: true //IMPORTANT - this suppresses info windows so you can create your own
   });
   
-  //Create Bike Safety layer
-  safetyLayer = new google.maps.FusionTablesLayer(4735432, {
+  //Create Bike Crash layer
+  crashLayer = new google.maps.FusionTablesLayer(4735432, {
    query: "SELECT * FROM 4735432 WHERE risk>4",
+    suppressInfoWindows: true //IMPORTANT - this suppresses info windows so you can create your own
+  });  
+
+  //Create Bike Beauty layer
+  beautyLayer = new google.maps.FusionTablesLayer(5390867, {
+   query: "SELECT * FROM 5390867",
+    suppressInfoWindows: true //IMPORTANT - this suppresses info windows so you can create your own
+  });
+  
+  //Create Bike Ease layer
+  easeLayer = new google.maps.FusionTablesLayer(5390961, {
+   query: "SELECT * FROM 5390961",
+    suppressInfoWindows: true //IMPORTANT - this suppresses info windows so you can create your own
+  });
+  
+  //Create Bike Safety layer
+  safetyLayer = new google.maps.FusionTablesLayer(5390390, {
+   query: "SELECT * FROM 5390390",
     suppressInfoWindows: true //IMPORTANT - this suppresses info windows so you can create your own
   });
   
@@ -62,7 +105,7 @@ function initialize() {
   
   routeLayer.setMap(map); 
   //rackLayer.setMap(map);
-  safetyLayer.setMap(map);
+  crashLayer.setMap(map);
   
 }
 
@@ -100,9 +143,55 @@ function removeLeg() {
 }
 
 function toggleBikeLayer() {
-	// toggle bike rack layer
+	// Control map layer toggle checkboxes
+	$('#routes_toggle').change(function() {
+		if ($(this).is(':checked')) {
+			routeLayer.setMap(map); // show
+		} else {
+			routeLayer.setMap(null); // hide
+		}
+	});
 	$('#rack_toggle').change(function() {
-		toggleLayer('rackLayer','map');
+		if ($(this).is(':checked')) {
+			rackLayer.setMap(map); // show
+		} else {
+			rackLayer.setMap(null); // hide
+		}
+	});
+	$('#crash_toggle').change(function() {
+		if ($(this).is(':checked')) {
+			crashLayer.setMap(map); // show
+		} else {
+			crashLayer.setMap(null); // hide
+		}
+	});
+	$('#beauty_toggle').change(function() {
+		if ($(this).is(':checked')) {
+			beautyLayer.setMap(map); // show
+		} else {
+			beautyLayer.setMap(null); // hide
+		}
+	});
+	$('#beauty_toggle').change(function() {
+		if ($(this).is(':checked')) {
+			beautyLayer.setMap(map); // show
+		} else {
+			beautyLayer.setMap(null); // hide
+		}
+	});
+	$('#ease_toggle').change(function() {
+		if ($(this).is(':checked')) {
+			easeLayer.setMap(map); // show
+		} else {
+			easeLayer.setMap(null); // hide
+		}
+	});
+	$('#safety_toggle').change(function() {
+		if ($(this).is(':checked')) {
+			safetyLayer.setMap(map); // show
+		} else {
+			safetyLayer.setMap(null); // hide
+		}
 	});
 }
 
@@ -162,18 +251,12 @@ $(document).ready(function(){
 	});
 
 	// Load control toolbar
-	$('#controls').load('php/controls.php').dialog({
-		position: ['left','top'],
-		title: 'Map Layers',
-		resizable: false
+	$('#controls').load('php/controls.php', function() {
+		 toggleBikeLayer()
 	});
 	
 	// Load Rankings Dialog
-	$('#ranking').load('php/ranking2.php').dialog({
-		position: ['right','top'],
-		title: 'Route Rankings',
-		zIndex: 9
-	});
+	$('#ranking').load('php/ranking2.php');
 	
 	$('#sharethis').click(function(){
 		$(this).load('cgi-bin/share.php').dialog({
@@ -191,9 +274,9 @@ $(document).ready(function(){
 	
 	$('#rateSubmit').click(function() {
 		submitForm();
-		
 	});
 	
+
 });
 
 
