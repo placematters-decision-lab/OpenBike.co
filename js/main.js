@@ -1,8 +1,19 @@
 /* Author:
-
+	Michael Lockwitz - michael@lockdev.com
 */
-function initialize() {
 
+  // Enable otions for draggle routes
+  var rendererOptions = {
+	  draggable: true
+	};
+  var directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);;
+  var directionsService = new google.maps.DirectionsService();
+
+
+function initialize() {
+  
+
+  // Styles for map
   var styles = [
     {
       stylers: [
@@ -36,6 +47,7 @@ function initialize() {
   });
   
   map.setOptions({styles: styles});
+
 
   //Create Bike Route layer
   routeLayer = new google.maps.FusionTablesLayer(5369349, {
@@ -72,12 +84,17 @@ function initialize() {
    query: "SELECT * FROM 5390390",
     suppressInfoWindows: true //IMPORTANT - this suppresses info windows so you can create your own
   });
+
+  google.maps.event.addListener(directionsDisplay, 'directions_changed', function() {
+    computeTotalDistance(directionsDisplay.directions);
+  });
   
   //Add a listener to the layer 
+  // Need to fix routeLayer = whatever layer is top and visible, or get info for all 3 layers
   google.maps.event.addListener(routeLayer, 'click', 
     function(e){
     	// display leg rating toolbar
-    	openLegToolbar();
+    	//toggleRouteRanker();
     	
     	// add route data to for
     	var legName = e.row['legname'].value;
@@ -103,10 +120,43 @@ function initialize() {
 	  	
   });
   
-  routeLayer.setMap(map); 
-  //rackLayer.setMap(map);
+  // Create directions layer
+  directionsDisplay.setMap(map);
+  directionsDisplay.setPanel(document.getElementById("directions_panel-color"));
+
+  // Add OpenBike.co layers to map
+  routeLayer.setMap(map);
   crashLayer.setMap(map);
+
+  calcRoute();
   
+}
+
+function calcRoute() {
+
+  var request = {
+    origin: "1840 s adams st denver co",
+    destination: "City Park, Denver CO",
+    waypoints:[{location: "Washington Park, Denver CO"}, {location: "Civic Park, Denver CO"}],
+    travelMode: google.maps.TravelMode.BICYCLING
+  };
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
+    } else {
+    	alert(status);
+    }
+  });
+}
+
+function computeTotalDistance(result) {
+  var total = 0;
+  var myroute = result.routes[0];
+  for (i = 0; i < myroute.legs.length; i++) {
+    total += myroute.legs[i].distance.value;
+  }
+  total = Math.round((total / 1609.34)*10)/10;
+  document.getElementById("total").innerHTML = "Total: " + total + " mi";
 }
 
 
@@ -114,24 +164,31 @@ function toggleLayer( layer, map ){
      layer.setMap( layer.getMap() ? null : map );
 }
 
-function openLegToolbar() {
-	var routeRanker = $('#route_ranker');
-	var legToolbar = $('#route_ranker_wrapper');
-	var legToolbarText = $('#route_ranker_toolbar');
+function toggleRouteRanker() {
+	var routeRanker = $('.route_ranker');
+	var legToolbar = $('.route_ranker_wrapper');
+	var legToolbarText = $('.route_ranker_toolbar');
 
 	// determine if open
 	if ( routeRanker.is(':visible') ) {	
-		// if open, leave open
-		
-	// if not open, open
-	} else {
-		routeRanker.show();
+		// if open, close
 			
-		legToolbar.animate({
+		routeRanker.animate({
+			height:'0',
+		},500,function(){
+			legToolbarText.html('Maximize');
+			routeRanker.hide();
+		});
+
+
+	// if close, open
+	} else {
+		routeRanker.animate({
 			height:'+=250px',
 		},500,function(){
 			legToolbarText.html('Minimize');
-		});		
+		});	
+		routeRanker.show();
 	}
 }
 
@@ -224,30 +281,8 @@ function submitForm() {
 $(document).ready(function(){
 	
 	// show/hide ranking tool
-	$('#route_ranker_toolbar').click(function() {
-		var routeRanker = $('#route_ranker');
-		var legToolbar = $('#route_ranker_wrapper');
-		var legToolbarText = $('#route_ranker_toolbar');
-
-		// determine if open
-		if ( routeRanker.is(':visible') ) {		
-			// if open, change text and hide
-			legToolbar.animate({
-				height:'-=250px',
-			},500, function() {
-				routeRanker.hide();
-				legToolbarText.html('Maximize');
-			})
-		} else {	
-			// else change text and show
-		routeRanker.show();
-			
-		legToolbar.animate({
-			height:'+=250px',
-		},500,function(){
-			legToolbarText.html('Minimize');
-		});		
-		}
+	$('.route_ranker_toolbar').click(function() {
+		toggleRouteRanker();
 	});
 
 	// Load control toolbar
@@ -277,6 +312,12 @@ $(document).ready(function(){
 	});
 	
 
+	// Control Route Ranker Dialog
+	$('#rate_button').click(function() {
+ 		toggleRouteRanker();
+
+ 		return false;
+ 	});
 });
 
 

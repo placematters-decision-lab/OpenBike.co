@@ -54,9 +54,10 @@
           <a class="brand" href="#"><img src="img/open_bike_logo.png"></a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="#" id="rate_button">Rate</a></li>
+              <li><a href="#about">Find</a></li>
+              <li><a href="#contact">Explore</a></li>
+              <li><a href="#contact">Challenge</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -78,43 +79,40 @@
 
 				</div></div><!-- .right-sidebar -->
 				
-				
+				<div class="directions_panel"><div id="directions_panel-color">
+					<div class="pull"></div>
+
+					<h2>Directions</h2>
+
+					<h3 id="total"></h3>
+				</div></div><!-- #directionsPanel -->
 				
 				<div class="route_ranker_wrapper"><div class="route_ranker_wrapper-color">
-					<div class="pull"></div>
+					
 					  <div class="route_ranker">
 						<form id="rank_form">
 							<div id="rank_controls">
-								<h2>Rank Route</h2>
+
 								<table>
 									<tr>
-										<td colspan="3" class="rank_category"><h3>Beauty</h3></td>
-									</tr>
-									<tr>
 										<td class="left_label label">Ugly</td>
-										<td>&nbsp;</td>
+										<td><h3>Beauty</h3></td>
 										<td class="label">Pretty</td>
 									</tr>
 									<tr class="slide_hold">
 										<td colspan="3" class="slider_row"><div id="beauty_slider" class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 50%; "></a></div></td>
 									</tr>
 									<tr>
-										<td colspan="3" class="rank_category"><h3>Ease</h3></td>
-									</tr>
-									<tr">
 										<td class="left_label label">Hard</td>
-										<td>&nbsp;</td>
+										<td><h3>Ease</h3></td>
 										<td class="label">Easy</td>
 									</tr>
 									<tr class="slide_hold">
 										<td colspan="3" class="slider_row"><div id="difficulty_slider" class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 50%; "></a></div></td>
 									</tr>
 									<tr>
-										<td colspan="3" class="rank_category"><h3>Safety</h3></td>
-									</tr>
-									<tr>
 										<td class="left_label label">Dangerous</td>
-										<td>&nbsp;</td>
+										<td><h3>Safety</h3></td>
 										<td class="label">Safe</td>
 									</tr>
 									<tr class="slide_hold">
@@ -136,7 +134,7 @@
 							</div><!-- #social -->
 						</form>
 					  </div><!-- #route_ranker -->
-					  <!-- <div id="route_ranker_toolbar">Maximize</div> -->
+					  <div class="route_ranker_toolbar">Maximize</div>
 				  </div></div><!-- .route_ranker_wrapper -->
   
 		      </div><!-- /.proper-content -->
@@ -173,6 +171,14 @@
     <script src="/js/bootstrap-collapse.js"></script>
     <script src="/js/bootstrap-carousel.js"></script>
     <script src="/js/bootstrap-typeahead.js"></script>
+    
+	<script>
+		var _gaq=[['_setAccount','UA-33720151-1'],['_trackPageview']];
+		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+		g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s)}(document,'script'));
+	</script>
+
 
   </body>
 </html>
