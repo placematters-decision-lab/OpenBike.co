@@ -1,4 +1,4 @@
-These queries are a work in progress but were used to process the existing OpenBike.co data.  Please feel free to use and improve them as you need.  Depending on the directoin of the project these could be developed into a fully automated process for updating data from live feeds such as the recently released Denver Crime API.  In the mean time this is still a fairly manual process requiring strict table and field names.
+These queries are a work in progress but were used to process the existing OpenBike.co data.  Please feel free to use and improve them as you need.  Depending on the direction of the project these could be developed into a fully automated process for updating data from live feeds such as the recently released Denver Crime API.  In the mean time this is still a fairly manual process requiring strict table and field names.
 
 These were develeloped on a PostGIS 2.0 database but could be run from older versions of PostGIS.
 
