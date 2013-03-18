@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html dir="ltr" lang="en-US" class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html dir="ltr" lang="en-US" class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html dir="ltr" lang="en-US" class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html dir="ltr" lang="en-US" class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html dir="ltr" lang="en-US"> <!--<![endif]-->
+
+<head>
+<title>OpenBike</title>
+
+<!--  Mobile Viewport Fix -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  
+<!-- Google WebFonts -->
+<link href='http://fonts.googleapis.com/css?family=Dancing+Script:700' rel='stylesheet' type='text/css'>
+
+<!-- leaflet -->
+<script src="js/lib/leaflet/leaflet.js"></script>
+<link rel="stylesheet" href="js/lib/leaflet/leaflet.css" />
+
+<!-- json support -->
+<script src="js/lib/json2.js"></script>
+
+<!-- jquery -->
+<script src="js/lib/jquery/jquery-1.7.2.js"></script>
+
+<!-- jquery-ui -->
+<script src="js/lib/jquery-ui/js/jquery-ui-1.8.20.custom.min.js"></script>
+<link rel="stylesheet" href="js/lib/jquery-ui/css/smoothness/jquery-ui-1.8.20.custom.css" />
+
+<!-- raphael -->
+<script src="js/lib/raphael/raphael-min.js"></script>
+
+<!-- otp-specific imports -->
+<script src="js/otp/otp.js"></script>
+<script src="js/otp/config.js"></script>
+<script src="js/otp/util/leaflet.js"></script>
+<script src="js/otp/util/Time.js"></script>
+<script src="js/otp/util/Logger.js"></script>
+<script src="js/otp/util/DataStorage.js"></script>
+<script src="js/otp/core/Webapp.js"></script>
+<script src="js/otp/core/Map.js"></script>
+<script src="js/otp/modules/Module.js"></script>
+<script src="js/otp/modules/bikeshare/BikeShareModule.js"></script>
+<script src="js/otp/modules/bikeshare/IconFactory.js"></script>
+<script src="js/otp/widgets/Widget.js"></script>
+<script src="js/otp/widgets/TripSummaryWidget.js"></script>
+<script src="js/otp/widgets/BikeTrianglePanel.js"></script>
+<script src="js/otp/widgets/BikeStationsWidget.js"></script>
+<script src="js/otp/widgets/InfoWidget.js"></script>
+<link rel="stylesheet" href="style.css" />
+
+<!-- make legacy Internet Explorer play nice(r) -->
+<!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<!-- create the webapp at startups -->
+<script type="text/javascript" language="javascript">
+$(document).ready(function() {
+    new otp.core.Webapp();
+
+});
+</script>
+
+</head>
+<body>
+
+<header id="branding" role="banner" class="clearfix">
+  <div id="ob-logo"></div>
+  <!-- <hgroup id="logo">
+    <div class="ribbon">
+      <h1 id="site-title"><span><a href="/" title="cibi.me" rel="home">OpenBike.co</a></span></h1>
+      <h2 id="site-description">Better bike routes</h2>
+    </div>
+  </hgroup> -->
+
+  <!-- AddThis Button BEGIN -->
+  <div class="addthis_toolbox addthis_default_style" 
+    addthis:url="http://openbike.co"
+    addthis:title="How will you use OpenBike? Plan a trip now with #OpenBike."
+    addthis:description="OpenBike.co is built with tech by OpenPlans and allows users to find better bike routes.">
+    <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+
+  <nav id="main-menu" role="article">
+    <ul>
+      <li class="" id="about_link"><a href="#">About</a></li>
+      <li class="" id="contact_link"><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+ <!--
+  <div class="search">
+    
+    <input type="text" name="location_search" placeholder="Search for a location&hellip;" />
+  </div>
+ -->
+</header><!-- #branding -->
+
+<div id="map"></div>
+
+<div id="foo"></div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33720151-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>
